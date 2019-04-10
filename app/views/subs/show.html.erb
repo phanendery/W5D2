@@ -1,0 +1,37 @@
+<h1>
+<%= link_to "All My Subs", subs_url %>
+</h1>
+
+<p>
+  <%= @sub.description %>
+</p>
+
+<%=button_to "Delete Sub", sub_url(@sub), method: :delete  %>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+  <li> <%= post.title %>
+  <%= button_to "Delete Post", post_url(post), method: :delete %>  </li>
+  <br>
+  <% end %>
+</ul>
+
+
+<h1>Add Post</h1>
+<form class="" action="<%=sub_posts_url(@sub)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label>Title
+    <input type="text" name="post[title]" value="<%=@post.title%>">
+  </label>
+
+  <label>URL
+    <input type="text" name="post[url]" value="<%=@post.url%>">
+  </label>
+
+  <label>Content
+    <input type="text" name="post[content]" value="<%=@post.content%>">
+  </label>
+
+  <input type="submit" name="" value="Add Post">
+
+</form>

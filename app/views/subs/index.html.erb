@@ -1,0 +1,8 @@
+<h1>Subs#index</h1>
+<p>Find me in app/views/subs/index.html.erb</p>
+
+<% @subs.each do |s| %>
+<%= link_to s.title, sub_url(s) %><br><br>
+<strong>Description</strong><br><%= s.description %><br><br>
+<%= link_to "Edit", edit_sub_url(s) %> <br> <br>
+<% end %>
